@@ -1,24 +1,23 @@
-name: secure ci pipeline
+name: Secure CI Pipeline
 
 on:
- push:
+  push:
 
 jobs:
   build:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
- steps:
-
-      - name: checkout code
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: set up python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: initial dependencies
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: build docker image
-        run: docker build -t secure-app
+      - name: Build Docker image
+        run: docker build -t secure-app .
